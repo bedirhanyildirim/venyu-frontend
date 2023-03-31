@@ -1,9 +1,7 @@
-function App() {
-  return (
-    <h1 className="text-3xl font-bold">
-      Hello world!
-    </h1>
-  )
+import { useRoutes } from "react-router-dom"
+import routes from "./routers/index";
+
+export default function App() {
+  return useRoutes(routes)
 }
 
-export default App
