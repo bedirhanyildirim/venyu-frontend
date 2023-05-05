@@ -10,6 +10,12 @@ export default function Header() {
         <NavLink to="/">
           Anasayfa
         </NavLink>
+        <NavLink to="/login">
+          Giriş Yap
+        </NavLink>
+        <NavLink to="/signup">
+          Üye Ol
+        </NavLink>
         <NavLink to="/about" className="mr-4 md:mr-0">
           Hakkımızda
         </NavLink>

@@ -1,5 +1,7 @@
 import Home from "../pages/Home"
 import About from "../pages/About"
+import Login from "../pages/Login"
+import Signup from "../pages/Signup.jsx"
 
 import GuestUser from "../layouts/GuestUser"
 
@@ -15,6 +17,14 @@ const routes = [
       {
         path: 'about',
         element: <About />
+      },
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'signup',
+        element: <Signup />
       }
     ]
   }
