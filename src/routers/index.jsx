@@ -3,8 +3,10 @@ import About from "../pages/About"
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import Profile from "../pages/Profile"
+import CompleteProfile from "../pages/CompleteProfile"
 
 import PrivateRoute from "../components/privateRoute"
+import NoNavigation from "../layouts/NoNavigation"
 
 import GuestUser from "../layouts/GuestUser"
 
@@ -32,6 +34,17 @@ const routes = [
       {
         path: 'profile',
         element: <Profile />,
+        auth: true
+      }
+    ]
+  },
+  {
+    path: '/complete-profile',
+    element: <NoNavigation />,
+    children: [
+      {
+        path: '',
+        element: <CompleteProfile />,
         auth: true
       }
     ]
