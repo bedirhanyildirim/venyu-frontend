@@ -1,7 +1,9 @@
 import Home from "../pages/Home"
 import About from "../pages/About"
 import Login from "../pages/Login"
-import Signup from "../pages/Signup.jsx"
+import Signup from "../pages/Signup"
+import Profile from "../pages/Profile"
+
 import PrivateRoute from "../components/privateRoute"
 
 import GuestUser from "../layouts/GuestUser"
@@ -26,6 +28,11 @@ const routes = [
       {
         path: 'signup',
         element: <Signup />
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+        auth: true
       }
     ]
   }
