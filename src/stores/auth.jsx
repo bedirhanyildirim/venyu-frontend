@@ -9,14 +9,12 @@ const auth = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setIsLoggedIn: (state, action) => {
-      state.isLoggedIn = action.payload
-    },
     setUser: (state, action) => {
       state.user = action.payload
+      state.isLoggedIn = Object.keys(action.payload).length !== 0
     }
   },
 })
 
-export const { setIsLoggedIn, setUser } = auth.actions
+export const { setUser } = auth.actions
 export default auth.reducer

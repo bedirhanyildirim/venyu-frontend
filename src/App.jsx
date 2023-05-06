@@ -3,7 +3,7 @@ import routes from './routers/index'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase/firebase.config'
 import { useDispatch } from 'react-redux'
-import { setIsLoggedIn, setUser } from './stores/auth'
+import { setUser } from './stores/auth'
 import { setLoader } from './stores/loader'
 import { useEffect } from 'react'
 
@@ -23,10 +23,8 @@ export default function App() {
           providerId: user.providerId,
           uid: user.uid
         }
-        dispatch(setIsLoggedIn(true))
         dispatch(setUser(userDate))
       } else {
-        dispatch(setIsLoggedIn(false))
         dispatch(setUser({}))
       }
       dispatch(setLoader(false))
