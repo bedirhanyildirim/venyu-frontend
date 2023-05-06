@@ -1,12 +1,13 @@
+import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { auth } from "../firebase/firebase.config"
 import { signOut } from "firebase/auth"
-import { useDispatch } from "react-redux"
 import { setUser } from "../stores/auth"
 
 export default function Header() {
   
   const dispatch = useDispatch()
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
   
   const logout = () => {
     signOut(auth).then(() => {
@@ -25,19 +26,29 @@ export default function Header() {
         <NavLink to="/">
           Anasayfa
         </NavLink>
-        <NavLink to="/login">
-          Giriş Yap
-        </NavLink>
-        <NavLink to="/signup">
-          Üye Ol
-        </NavLink>
-        <NavLink to="/profile">
-          Profilim
-        </NavLink>
         <NavLink to="/about" className="mr-4 md:mr-0">
           Hakkımızda
         </NavLink>
-        <div className="hover:cursor-pointer" onClick={logout}>Çıkış Yap</div>
+        {!isLoggedIn && (
+          <NavLink to="/login">
+            Giriş Yap
+          </NavLink>
+        )}
+        {!isLoggedIn && (
+          <NavLink to="/signup">
+            Üye Ol
+          </NavLink>
+        )}
+        {isLoggedIn && (
+          <NavLink to="/profile">
+            Profilim
+          </NavLink>
+        )}
+        {isLoggedIn && (
+          <div className="hover:cursor-pointer" onClick={logout}>
+            Çıkış Yap
+          </div>
+        )}
       </div>
     </div>
   )
