@@ -1,15 +1,24 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useState } from 'react'
-import { setLoader } from '../stores/loader'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../firebase/firebase.config'
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { setLoader } from "../stores/loader"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../firebase/firebase.config"
 
 export default function Signup() {
   
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
   const [emailInput, setEmailInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
+  
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(-1)
+    }
+  }, []);
+  
   
   const signUp = async (e) => {
     e.preventDefault()
@@ -30,8 +39,7 @@ export default function Signup() {
     <div className="content">
       <h1 className="text-3xl font-bold">Üye Ol</h1>
       <p className="text-xl mt-2">Lütfen üye olunuz</p>
-      <br/>
-      <div className="lg:w-1/2">
+      <div className="lg:w-1/2 mt-10">
         <form className="w-full" onSubmit={signUp} action="">
           <div className="flex flex-col mb-4">
             <label htmlFor="email" className="mb-1 text-md">Email adresi:</label>
@@ -46,8 +54,6 @@ export default function Signup() {
           </div>
         </form>
       </div>
-      <br/>
-      <p>Is user logged in? {isLoggedIn ? 'Yes' : 'No'}</p>
     </div>
   )
 }
