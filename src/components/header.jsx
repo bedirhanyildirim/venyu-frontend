@@ -7,7 +7,7 @@ import { setUser } from "../stores/auth"
 export default function Header() {
   
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   
   const logout = () => {
     signOut(auth).then(() => {

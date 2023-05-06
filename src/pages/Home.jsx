@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 
 export default function Home() {
   
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   
   return (
     <div className="content">
