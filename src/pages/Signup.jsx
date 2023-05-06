@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useState } from "react"
+import { useDispatch } from "react-redux"
 import { setLoader } from "../stores/loader"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase/firebase.config"
@@ -8,26 +7,14 @@ import { auth } from "../firebase/firebase.config"
 export default function Signup() {
   
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
   const [emailInput, setEmailInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
   
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate(-1)
-    }
-  }, []);
-  
-  
   const signUp = async (e) => {
     e.preventDefault()
-    
     try {
       dispatch(setLoader(true))
-      const userCredentials = await createUserWithEmailAndPassword(auth, emailInput, passwordInput)
-      const user = userCredentials.user
-      console.log(user)
+      await createUserWithEmailAndPassword(auth, emailInput, passwordInput)
     } catch (e) {
       console.log(`an error occurred: ${e}`)
     } finally {
