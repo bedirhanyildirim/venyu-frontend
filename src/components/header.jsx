@@ -56,15 +56,15 @@ export default function Header({ isNavigation = true }) {
                 {isDropdownOpen && (
                   <div ref={profileDropDownRef} className="absolute top-0 right-0 mt-14 bg-white border shadow-sm bg-white rounded-lg py-4">
                     <ul className="w-full text-left">
-                      <NavLink to="/profile" className="w-full">
-                        <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-300">
+                      <NavLink to="/profile" className={({isActive}) => isActive ? 'bg-gray-300 w-full hover:bg-gray-200' : 'w-full hover:bg-gray-200'} >
+                        <li className="w-full p-1 px-5 bg-inherit">
                           Profilim
                         </li>
                       </NavLink>
-                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-300">Reservasyonlarım</li>
-                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-300">Mekanlarım</li>
-                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-300">İstekler</li>
-                      <li className="w-full p-1 px-5 text-red-700 hover:cursor-pointer hover:bg-gray-300" onClick={logout}>Çıkış yap</li>
+                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">Reservasyonlarım</li>
+                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">Mekanlarım</li>
+                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">İstekler</li>
+                      <li className="w-full p-1 px-5 text-red-700 hover:cursor-pointer hover:bg-gray-200" onClick={logout}>Çıkış yap</li>
                     </ul>
                   </div>
                 )}
