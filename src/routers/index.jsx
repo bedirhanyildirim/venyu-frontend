@@ -3,6 +3,7 @@ import About from "../pages/About"
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import Profile from "../pages/Profile"
+import Sources from "../pages/Sources"
 import CompleteProfile from "../pages/CompleteProfile"
 
 import PrivateRoute from "../components/privateRoute"
@@ -34,6 +35,11 @@ const routes = [
       {
         path: 'profile',
         element: <Profile />,
+        auth: true
+      },
+      {
+        path: 'sources',
+        element: <Sources />,
         auth: true
       }
     ]

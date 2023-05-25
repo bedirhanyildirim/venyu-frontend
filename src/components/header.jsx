@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { auth } from "../firebase/firebase.config"
 import { signOut } from "firebase/auth"
 import { setUser } from "../stores/auth"
 import { useRef, useState } from "react"
+import { NavLink } from "react-router-dom"
+import { auth } from "../firebase/firebase.config"
+import { useDispatch, useSelector } from "react-redux"
 import useOnClickOutside from "../hooks/useOnClickOutside"
 
 export default function Header({ isNavigation = true }) {
@@ -61,9 +61,13 @@ export default function Header({ isNavigation = true }) {
                           Profilim
                         </li>
                       </NavLink>
-                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">Reservasyonlarım</li>
-                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">Mekanlarım</li>
+                      <NavLink to="/sources" className={({isActive}) => isActive ? 'bg-gray-300 w-full hover:bg-gray-200' : 'w-full hover:bg-gray-200'} >
+                        <li className="w-full p-1 px-5 bg-inherit">
+                          Mekanlarım
+                        </li>
+                      </NavLink>
                       <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">İstekler</li>
+                      <li className="w-full p-1 px-5 hover:cursor-pointer hover:bg-gray-200">Reservasyonlarım</li>
                       <li className="w-full p-1 px-5 text-red-700 hover:cursor-pointer hover:bg-gray-200" onClick={logout}>Çıkış yap</li>
                     </ul>
                   </div>
