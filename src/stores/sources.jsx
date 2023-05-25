@@ -20,9 +20,14 @@ const sources = createSlice({
       state.mySources = action.payload
       const now = new Date()
       state.lastUpdateMySources = now.toISOString()
+    },
+    addNewSource: (state, action) => {
+      state.mySources.push(action.payload)
+      const now = new Date()
+      state.lastUpdateMySources = now.toISOString()
     }
   },
 })
 
-export const { setSharedSources, setMySources } = sources.actions
+export const { setSharedSources, setMySources, addNewSource } = sources.actions
 export default sources.reducer

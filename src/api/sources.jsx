@@ -13,7 +13,7 @@ const getSharedSources = async () => {
 
 const getMySources = async (uid) => {
   const mySources = []
-  const q = query(sourcesCollection, where('owner.id', '==', uid))
+  const q = query(sourcesCollection, where('uid', '==', uid))
   const snap = await getDocs(q)
   snap.forEach((doc) => {
     mySources.push(doc.data())

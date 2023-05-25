@@ -4,6 +4,7 @@ import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import Profile from "../pages/Profile"
 import Sources from "../pages/Sources"
+import NewSource from "../pages/NewSource"
 import CompleteProfile from "../pages/CompleteProfile"
 
 import PrivateRoute from "../components/privateRoute"
@@ -40,6 +41,11 @@ const routes = [
       {
         path: 'sources',
         element: <Sources />,
+        auth: true
+      },
+      {
+        path: 'sources/new',
+        element: <NewSource />,
         auth: true
       }
     ]
