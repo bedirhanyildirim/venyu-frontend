@@ -8,8 +8,6 @@ import { sourcesCollection } from "../firebase/firebase.config"
 
 export default function NewSource () {
   
-  // title, description, capacity, sharedUsage, owner, date
-  
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
